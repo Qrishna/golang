@@ -2,7 +2,6 @@ package main
 
 import "fmt"
 
-
 func max (array [] int) int{
 	mymax := array[0]
 	for _, value := range(array){
@@ -61,20 +60,23 @@ func main() {
 		fmt.Printf("array[%d] = %d\n", x, array[x])
 	}
 
-	//var i, j int
-	//
-	//rows := len(array2d)
-	//cols := len(array2d[0])
-	//
-	//fmt.Printf("rows of my array is: %d\n", rows)
-	//fmt.Printf("cols of my array is: %d\n", cols)
-	//
-	//for i = 0; i<rows; i++{
-	//	for j = 0; j<cols; j++{
-	//		fmt.Printf("array2d[%d][%d] = %d\n", i, j, array2d[i][j])
-	//	}
-	//}
+	/*
+	var i, j int
 
+	rows := len(array2d)
+	cols := len(array2d[0])
+
+	fmt.Printf("rows of my array is: %d\n", rows)
+	fmt.Printf("cols of my array is: %d\n", cols)
+
+	for i = 0; i<rows; i++{
+		for j = 0; j<cols; j++{
+			fmt.Printf("array2d[%d][%d] = %d\n", i, j, array2d[i][j])
+		}
+	}
+	*/
+
+	// This is the same as above
 	for i, rows :=range(array2d){
 		for j, cols :=range rows{
 			fmt.Printf("array2d[%d][%d] = %d\n",i, j, cols)
@@ -85,4 +87,40 @@ func main() {
 	fmt.Printf("Max of my array is: %d\n", max(array))
 	fmt.Printf("Min of my array is: %d\n", min(array))
 	fmt.Printf("Sum of my array is: %d\n", sum(array))
+
+
+	// map
+	/*
+	dict := make(map[string]string)	// make the map
+	dict["name"] = "krsna"
+	dict["address"] = "dallas"
+	*/
+
+	// This is the same as above
+	dict := map[string] string{
+		"name" : "krsna",
+		"value": "dallas",
+	}
+
+	fmt.Printf("dict[%s] = %s\n", "name", dict["name"])
+	fmt.Printf("dict[%s] = %s\n", "name", dict["address"])
+	fmt.Printf("number of items in map = %d\n", len(dict))
+
+	// iterating over maps
+	for key, value := range dict{
+		fmt.Println("Key:", key, "Value:", value, "dict[key]:", dict[key])
+	}
+
+
+	sensors := map[string] float32{
+		"rsc": 3711.2,
+		"r":   2138.1,
+		"gri": 1908.1,
+		"adg": 912.5,
+	}
+	
+	for key, value := range sensors{
+		fmt.Println("Key:", key, "Value:", value, "sensors[key]:", sensors[key])
+	}
+
 }

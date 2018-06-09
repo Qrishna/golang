@@ -1,5 +1,5 @@
 #golang
 ###### USAGE
 ```
-$ go run module.go
+$ go run main/module.go
 ```
