@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+	"strings"
+)
 
 func max (array [] int) int{
 	mymax := array[0]
@@ -118,9 +122,33 @@ func main() {
 		"gri": 1908.1,
 		"adg": 912.5,
 	}
-	
+
 	for key, value := range sensors{
 		fmt.Println("Key:", key, "Value:", value, "sensors[key]:", sensors[key])
 	}
 
+
+	var keys []string
+	for key, _ := range sensors{
+		keys = append(keys, key)
+	}
+
+	var values []float32
+	for _, value := range sensors{
+		values = append(values, value)
+	}
+
+	fmt.Println("Keys = ", keys, keys[0], keys[1], keys[2])
+	fmt.Printf("%T\n", keys)
+	fmt.Println(reflect.TypeOf(keys))
+
+
+	fmt.Println("Values = ", values, values[0], values[1], values[2])
+	fmt.Printf("%T\n", values)
+	fmt.Println(reflect.TypeOf(values))
+
+
+	// String manipulation
+	fmt.Println(strings.Index("chicken", "ken"))
+	fmt.Println(strings.Split("chicken,turkey,duck ", ","))
 }
